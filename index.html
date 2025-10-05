@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penggunaan Teknologi Informasi di Era Modern - BSI</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* Article Header */
+        .article-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .article-category {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Article Content */
+        .article-content {
+            padding: 50px 40px;
+        }
+
+        .article-intro {
+            font-size: 1.2rem;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #4facfe;
+        }
+
+        .content-text {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        .info-box h4 {
+            margin: 0 0 15px 0;
+            font-size: 1.3rem;
+        }
+
+        .info-box p {
+            margin: 0;
+            opacity: 0.95;
+        }
+
+        /* Statistics */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Technology List */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .tech-item {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tech-item:hover {
+            border-color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+        }
+
+        .tech-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .tech-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .tech-desc {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Quote */
+        .quote-box {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 30px;
+            margin: 40px 0;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: #555;
+            position: relative;
+        }
+
+        .quote-box::before {
+            content: '"';
+            font-size: 4rem;
+            color: #667eea;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            opacity: 0.3;
+        }
+
+        .quote-author {
+            text-align: right;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Interactive Elements */
+        .interactive-section {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .interactive-title {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .tech-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .tech-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .tech-btn:hover, .tech-btn.active {
+            background: white;
+            color: #ff9a9e;
+        }
+
+        .tech-info {
+            background: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-radius: 8px;
+            color: #333;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Footer */
+        .article-footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .share-btn {
+            background: #34495e;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .share-btn:hover {
+            background: #667eea;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            .article-content {
+                padding: 30px 20px;
+            }
+            
+            .article-header {
+                padding: 40px 20px;
+            }
+            
+            .article-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .tech-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#">
+        <img src="logo-universitas-bina-sarana-informatika-ubsi.png" alt="UBSI"
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#introduction">Pendahuluan</a></li>
+                    <li><a href="#applications">Aplikasi</a></li>
+                    <li><a href="#impact">Dampak</a></li>
+                    <li><a href="#future">Masa Depan</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Article Header -->
+        <header class="article-header">
+            <div class="article-category">TEKNOLOGI INFORMASI</div>
+            <h1 class="article-title">Penggunaan Teknologi Informasi di Era Modern</h1>
+            <div class="article-meta">
+                <div class="meta-item">
+                    <span>📅</span>
+                    <span>5 Oktober 2025</span>
+                </div>
+                <div class="meta-item">
+                    <span>👤</span>
+                    <span>Noufal Rizqullah Pratama</span>
+                </div>
+                <div class="meta-item">
+                    <span>💒</span>
+                    <span>Universitas Bina Sarana Informatika</span>
+                </div>
+                <div class="meta-item">
+                    <span>👁️</span>
+                    <span>2.5K views</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Article Content -->
+        <article class="article-content">
+            <!-- Introduction -->
+            <div class="article-intro">
+                Era modern telah menghadirkan revolusi teknologi informasi yang mengubah cara kita bekerja, berkomunikasi, dan menjalani kehidupan sehari-hari. Dari smartphone hingga artificial intelligence, teknologi informasi telah menjadi tulang punggung peradaban digital yang kita nikmati saat ini.
+            </div>
+
+            <!-- Section 1 -->
+            <section class="content-section fade-in" id="introduction">
+                <h2 class="section-title">🌟 Pendahuluan</h2>
+                <p class="content-text">
+                    Teknologi Informasi (TI) merupakan gabungan antara teknologi komputer dan telekomunikasi yang digunakan untuk mengumpulkan, menyimpan, mengolah, dan menyebarkan informasi. Di era modern ini, TI telah berkembang pesat dan menjadi bagian integral dari kehidupan manusia. (Belous & Saladhuka, 2020)
+                </p>
+                <p class="content-text">
+                    Perkembangan TI dimulai dari komputer mainframe pada tahun 1940-an, kemudian berkembang menjadi personal computer, internet, dan kini memasuki era cloud computing, Internet of Things (IoT), dan artificial intelligence (AI). Setiap fase perkembangan ini membawa dampak signifikan terhadap cara manusia berinteraksi dengan informasi. (The Development of Information Technology, 2022)
+                </p>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">5.16B</span>
+                        <span class="stat-label">Pengguna Internet Global</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">6.8B</span>
+                        <span class="stat-label">Pengguna Smartphone</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4.8B</span>
+                        <span class="stat-label">Pengguna Media Sosial</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2.5ZB</span>
+                        <span class="stat-label">Data Dibuat Per Hari</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2 -->
+            <section class="content-section fade-in" id="applications">
+                <h2 class="section-title">🚀 Aplikasi Teknologi Informasi</h2>
+                <p class="content-text">
+                    Teknologi informasi telah diterapkan dalam berbagai bidang kehidupan, mulai dari pendidikan, kesehatan, bisnis, hingga pemerintahan. Setiap bidang memiliki karakteristik dan kebutuhan yang berbeda dalam pemanfaatan TI.
+                </p>
+
+                <div class="tech-grid">
+                    <div class="tech-item" onclick="showTechDetail('pendidikan')">
+                        <span class="tech-icon">🎓</span>
+                        <h3 class="tech-title">Pendidikan</h3>
+                        <p class="tech-desc">E-learning, virtual classroom, dan sistem manajemen pembelajaran telah mengubah cara kita belajar dan mengajar.</p>
+                    </div>
+                    <div class="tech-item" onclick="showTechDetail('kesehatan')">
+                        <span class="tech-icon">🏥</span>
+                        <h3 class="tech-title">Kesehatan</h3>
+                        <p class="tech-desc">Telemedicine, rekam medis elektronik, dan AI diagnosis membantu meningkatkan kualitas layanan kesehatan.</p>
+                    </div>
+                    <div class="tech-item" onclick="showTechDetail('bisnis')">
+                        <span class="tech-icon">💼</span>
+                        <h3 class="tech-title">Bisnis</h3>
+                        <p class="tech-desc">E-commerce, digital marketing, dan sistem ERP mengoptimalkan operasional dan jangkauan bisnis.</p>
+                    </div>
+                    <div class="tech-item" onclick="showTechDetail('pemerintahan')">
+                        <span class="tech-icon">🏛️</span>
+                        <h3 class="tech-title">Pemerintahan</h3>
+                        <p class="tech-desc">E-government, smart city, dan layanan publik digital meningkatkan efisiensi pelayanan masyarakat.</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h4>💡 Tahukah Anda?</h4>
+                    <p>Pandemi COVID-19 mempercepat adopsi teknologi digital hingga 5-7 tahun lebih cepat dari prediksi semula. Hal ini menunjukkan betapa pentingnya teknologi informasi dalam menjaga kontinuitas aktivitas manusia.</p>
+                </div>
+            </section>
+
+            <!-- Interactive Section -->
+            <section class="interactive-section">
+                <h3 class="interactive-title">🔍 Jelajahi Teknologi Modern</h3>
+                <div class="tech-buttons">
+                    <button class="tech-btn active" onclick="showTechInfo('ai')">Artificial Intelligence</button>
+                    <button class="tech-btn" onclick="showTechInfo('iot')">Internet of Things</button>
+                    <button class="tech-btn" onclick="showTechInfo('blockchain')">Blockchain</button>
+                    <button class="tech-btn" onclick="showTechInfo('cloud')">Cloud Computing</button>
+                </div>
+                <div class="tech-info" id="techInfo">
+                    <p><strong>Artificial Intelligence (AI)</strong> adalah teknologi yang memungkinkan mesin untuk belajar, berpikir, dan membuat keputusan seperti manusia. AI digunakan dalam berbagai aplikasi seperti chatbot, sistem rekomendasi, dan kendaraan otonom.</p>
+                </div>
+            </section>
+
+            <!-- Section 3 -->
+            <section class="content-section fade-in" id="impact">
+                <h2 class="section-title">📈 Dampak Teknologi Informasi</h2>
+                <p class="content-text">
+                    Teknologi informasi memberikan dampak positif dan negatif yang signifikan terhadap kehidupan manusia. Pemahaman yang baik tentang dampak ini penting untuk memaksimalkan manfaat dan meminimalkan risiko.
+                </p>
+
+                <h3 style="color: #28a745; margin-top: 30px;">✅ Dampak Positif:</h3>
+                <ul style="font-size: 1.1rem; line-height: 1.8;">
+                    <li><strong>Efisiensi dan Produktivitas:</strong> Otomatisasi proses bisnis dan komunikasi yang lebih cepat</li>
+                    <li><strong>Akses Informasi:</strong> Kemudahan mengakses informasi dari seluruh dunia</li>
+                    <li><strong>Inovasi:</strong> Mendorong terciptanya produk dan layanan baru</li>
+                    <li><strong>Konektivitas Global:</strong> Menghubungkan orang-orang di seluruh dunia</li>
+                    <li><strong>Peluang Ekonomi:</strong> Menciptakan lapangan kerja dan model bisnis baru</li>
+                </ul>
+
+                <h3 style="color: #dc3545; margin-top: 30px;">⚠️ Dampak Negatif:</h3>
+                <ul style="font-size: 1.1rem; line-height: 1.8;">
+                    <li><strong>Digital Divide:</strong> Kesenjangan akses teknologi antar kelompok masyarakat</li>
+                    <li><strong>Keamanan Data:</strong> Risiko kebocoran dan penyalahgunaan data pribadi</li>
+                    <li><strong>Ketergantungan:</strong> Ketergantungan berlebihan pada teknologi</li>
+                    <li><strong>Pengangguran Teknologi:</strong> Hilangnya pekerjaan akibat otomatisasi</li>
+                    <li><strong>Isolasi Sosial:</strong> Berkurangnya interaksi langsung antar manusia</li>
+                </ul>
+
+                <div class="quote-box">
+                    Teknologi adalah alat yang berguna, tetapi tidak boleh menjadi tuan atas kehidupan kita. Kita harus menggunakannya dengan bijak untuk meningkatkan kualitas hidup, bukan menggantikan esensi kemanusiaan.
+                    <div class="quote-author">- Steve Jobs, Pendiri Apple Inc.</div>
+                </div>
+            </section>
+
+            <!-- Section 4 -->
+            <section class="content-section fade-in" id="future">
+                <h2 class="section-title">🔮 Masa Depan Teknologi Informasi</h2>
+                <p class="content-text">
+                    Masa depan teknologi informasi diprediksi akan semakin revolusioner dengan munculnya teknologi-teknologi baru yang akan mengubah paradigma kehidupan manusia secara fundamental.
+                </p>
+
+                <h3 style="margin-top: 30px;">🌟 Tren Teknologi Masa Depan:</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <span class="tech-icon">💻</span>
+                        <h3 class="tech-title">Quantum Computing</h3>
+                        <p class="tech-desc">Komputasi kuantum akan memberikan kekuatan pemrosesan yang eksponensial untuk memecahkan masalah kompleks.</p>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-icon">⚛️</span>
+                        <h3 class="tech-title">Metaverse</h3>
+                        <p class="tech-desc">Dunia virtual yang imersif akan mengubah cara kita bekerja, belajar, dan bersosialisasi.</p>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-icon">🔗</span>
+                        <h3 class="tech-title">Web 3.0</h3>
+                        <p class="tech-desc">Internet terdesentralisasi yang memberikan kontrol penuh kepada pengguna atas data mereka.</p>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-icon">🤖</span>
+                        <h3 class="tech-title">AGI</h3>
+                        <p class="tech-desc">Artificial General Intelligence yang dapat melakukan tugas kognitif setara dengan manusia.</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h4>🚀 Prediksi 2030</h4>
+                    <p>Pada tahun 2030, diperkirakan 50% pekerjaan akan melibatkan kolaborasi antara manusia dan AI, 75% perusahaan akan menggunakan cloud computing, dan 90% populasi dunia akan terhubung ke internet.</p>
+                </div>
+            </section>
+
+            <!-- Conclusion -->
+            <section class="content-section fade-in">
+                <h2 class="section-title">📝 Kesimpulan</h2>
+                <p class="content-text">
+                    Teknologi informasi di era modern telah menjadi katalisator perubahan yang mengubah hampir setiap aspek kehidupan manusia. Dari cara kita berkomunikasi, bekerja, belajar, hingga berhibur, semuanya telah dipengaruhi oleh kemajuan TI.
+                </p>
+                <p class="content-text">
+                    Meskipun memberikan banyak manfaat, kita juga harus waspada terhadap tantangan dan risiko yang menyertainya. Kunci sukses dalam menghadapi era digital ini adalah kemampuan untuk beradaptasi, belajar terus-menerus, dan menggunakan teknologi secara bijak dan bertanggung jawab.
+                </p>
+                <p class="content-text">
+                    Masa depan teknologi informasi menjanjikan inovasi yang lebih menakjubkan. Dengan persiapan yang tepat dan sikap yang bijak, kita dapat memanfaatkan teknologi untuk menciptakan dunia yang lebih baik, lebih efisien, dan lebih terhubung.
+                </p>
+            </section>
+        </article>
+
+        <!-- Footer -->
+        <footer class="article-footer">
+            <div class="share-buttons">
+                <a href="https://www.facebook.com/noufal.r.pratama.7" class="share-btn" onclick="shareArticle('facebook')">📘 Facebook</a>
+                <a href="https://www.instagram.com/kyuronaichi/?next=%2F" class="share-btn" onclick="shareArticle('Instagram')">📷 Instagram</a>
+                <a href="https://www.linkedin.com/in/noufal-rizqullah-pratama-05ab28377?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="share-btn" onclick="shareArticle('linkedin')">💼 LinkedIn</a>
+                <a href="https://api.whatsapp.com/send/?phone=6281779246785&text&type=phone_number&app_absent=0" class="share-btn" onclick="shareArticle('whatsapp')">💬 WhatsApp</a>
+            </div>
+            <p>&copy; 2025 Seo. Artikel ini dibuat untuk tujuan edukasi tentang teknologi informasi.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tech info data
+        const techData = {
+            ai: {
+                title: "Artificial Intelligence (AI)",
+                description: "Teknologi yang memungkinkan mesin untuk belajar, berpikir, dan membuat keputusan seperti manusia. AI digunakan dalam berbagai aplikasi seperti chatbot, sistem rekomendasi, dan kendaraan otonom."
+            },
+            iot: {
+                title: "Internet of Things (IoT)",
+                description: "Jaringan perangkat fisik yang terhubung ke internet dan dapat saling berkomunikasi. IoT memungkinkan otomatisasi rumah pintar, monitoring kesehatan, dan optimasi industri."
+            },
+            blockchain: {
+                title: "Blockchain",
+                description: "Teknologi distributed ledger yang menyimpan data secara terdesentralisasi dan aman. Blockchain adalah fondasi cryptocurrency dan memiliki aplikasi dalam supply chain, voting, dan kontrak pintar."
+            },
+            cloud: {
+                title: "Cloud Computing",
+                description: "Layanan komputasi yang menyediakan akses ke server, storage, database, dan software melalui internet. Cloud computing menawarkan skalabilitas, efisiensi biaya, dan aksesibilitas global."
+            }
+        };
+
+        // Show tech info
+        function showTechInfo(tech) {
+            const info = techData[tech];
+            const infoDiv = document.getElementById('techInfo');
+            
+            // Update active button
+            document.querySelectorAll('.tech-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Update content
+            infoDiv.innerHTML = `<p><strong>${info.title}</strong><br>${info.description}</p>`;
+        }
+
+        // Show tech detail
+        function showTechDetail(field) {
+            const details = {
+                pendidikan: "Teknologi informasi dalam pendidikan mencakup Learning Management System (LMS), virtual reality untuk pembelajaran imersif, AI untuk personalisasi kurikulum, dan platform kolaborasi online yang memungkinkan pembelajaran jarak jauh yang efektif.",
+                kesehatan: "Dalam bidang kesehatan, TI digunakan untuk Electronic Health Records (EHR), telemedicine, AI untuk diagnosis medis, wearable devices untuk monitoring kesehatan, dan robot bedah untuk operasi presisi tinggi.",
+                bisnis: "Dunia bisnis memanfaatkan TI melalui sistem ERP, CRM, e-commerce platforms, digital marketing, business intelligence, dan automation tools yang meningkatkan efisiensi operasional dan customer experience.",
+                pemerintahan: "E-government mencakup layanan publik online, sistem informasi kependudukan, smart city solutions, digital identity, dan platform partisipasi publik yang meningkatkan transparansi dan efisiensi pelayanan."
+            };
+            
+            alert(`${field.toUpperCase()}\n\n${details[field]}`);
+        }
+
+        // Share article
+        function shareArticle(platform) {
+            const title = "Penggunaan Teknologi Informasi di Era Modern";
+            const url = window.location.href;
+            
+            const messages = {
+                facebook: `Artikel menarik tentang "${title}" - ${url}`,
+                twitter: `Baca artikel tentang "${title}" ${url}`,
+                linkedin: `Artikel informatif: "${title}" ${url}`,
+                whatsapp: `Hai! Saya menemukan artikel menarik tentang "${title}". Baca di: ${url}`
+            };
+            
+            alert(`Berbagi ke ${platform}:\n\n${messages[platform]}`);
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe fade-in elements
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.fade-in').forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'all 0.8s ease';
+                observer.observe(element);
+            });
+        });
+
+        // Reading progress indicator
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            // You can add a progress bar here if needed
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9896cf64111a5af9',t:'MTc1OTYwMzI1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
